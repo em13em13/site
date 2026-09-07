@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آکادمی ویدیویی — KYOKABIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .vid-header{margin-top:90px;padding:40px 0;text-align:center;background:linear-gradient(135deg,#0a0a0a,#0a1020,#0a0a0a);border-bottom:1px solid var(--line);}
+    .vid-header h1{font-size:clamp(28px,4vw,42px);font-weight:900;}
+    .vid-header .sub{color:var(--muted);margin-top:8px;}
+    .vid-filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+    .vid-filter{padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;border:1px solid var(--line);background:transparent;color:var(--ink2);transition:.2s;cursor:pointer;}
+    .vid-filter:hover{border-color:var(--red);color:var(--red);}
+    .vid-filter.active{background:var(--red);color:#fff;border-color:var(--red);}
+    .vid-content{max-width:var(--maxw);margin-inline:auto;padding:24px 18px;}
+    .vid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+    .vid-empty{text-align:center;padding:60px 20px;color:var(--muted);}
+    .vid-empty .big{font-size:60px;}
+    .vid-promo{margin-top:30px;background:linear-gradient(135deg,#1a0505,#0a0a0a);border:1px solid rgba(220,20,60,.2);border-radius:var(--r-lg);padding:30px;display:flex;align-items:center;gap:30px;overflow:hidden;position:relative;}
+    .vid-promo::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(220,20,60,.15),transparent 50%);}
+    .vid-promo .content{position:relative;z-index:2;flex:1;}
+    .vid-promo h3{font-size:22px;font-weight:900;margin-bottom:8px;}
+    .vid-promo p{color:var(--ink2);font-size:14px;line-height:1.8;}
+    .vid-promo .emoji{font-size:80px;position:relative;z-index:2;animation:floaty 4s ease-in-out infinite;}
+    @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+    @media(max-width:760px){.vid-grid{grid-template-columns:1fr;}.vid-promo{flex-direction:column;text-align:center;}.vid-promo .emoji{font-size:60px;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><div class="logo-icon">極</div><div class="logo-text"><div class="brand">کیوکبیر</div><div class="sub">KYOKABIR</div></div></a>
+    <nav><a href="index.html">خانه</a><a href="shop.html">فروشگاه</a><a href="videos.html" class="active">آکادمی ویدیویی</a><a href="vip.html">کمپ VIP 360°</a><a href="events.html">رویدادها</a><a href="about.html">درباره ما</a></nav>
+    <div class="header-actions"><button class="h-btn" onclick="KBA.toggleLang()">🌐</button><button class="h-btn">❤️<span class="badge fav-badge" style="display:none">0</span></button><button class="h-btn cart-btn">🛒<span class="badge cart-badge">0</span></button><button class="login-btn" onclick="KBA.showLogin()">🥋 ورود</button></div>
+  </div>
+</header>
+
+<div class="vid-header">
+  <div class="container">
+    <h1>🎬 آکادمی <span style="color:var(--red)">ویدیویی</span></h1>
+    <p class="sub">آموزش آنلاین از مبتدی تا پیشرفته — از کاتا تا فلسفه کیوکوشین</p>
+    <div class="vid-filters" id="vidFilters"></div>
+  </div>
+</div>
+
+<div class="vid-content">
+  <div class="vid-grid" id="vidGrid"></div>
+
+  <div class="vid-promo">
+    <div class="content">
+      <h3 style="color:var(--gold)">به آکادمی آنلاین کیوکبیر خوش آمدید</h3>
+      <p>صدها ویدیوی آموزشی با کیفیت بالا از مبتدی تا پیشرفته. هر هفته ویدیوهای جدید اضافه می‌شود.</p>
+      <a href="vip.html" class="btn btn-gold" style="margin-top:16px">دسترسی VIP →</a>
+    </div>
+    <div class="emoji">🎬</div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal" style="position:relative"><button class="close" onclick="KBA.closeLogin()">✕</button><div class="modal-icon">🥋</div><h3>ورود به حساب کاربری</h3><p>شماره موبایل خود را وارد کنید</p><div class="input-group"><input type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" maxlength="11"><label>شماره موبایل</label></div><button class="btn btn-red" style="width:100%" onclick="KBA.toast('کد تایید ارسال شد')">ارسال کد تایید</button><div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px"><div class="otp-row"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"></div><button class="btn btn-red" style="width:100%" onclick="KBA.closeLogin();KBA.toast('ورود موفق!')">تایید و ورود</button></div></div>
+</div>
+
+<div class="toast-zone"></div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script>
+let vidCat = 'all';
+const levels = [
+  { id: 'all', label: 'همه', emoji: '📋' },
+  { id: 'کاتا', label: 'کاتا', emoji: '🥋' },
+  { id: 'تکنیک', label: 'تکنیک', emoji: '👊' },
+  { id: 'کومیته', label: 'کومیته', emoji: '🥊' },
+  { id: 'فلسفه', label: 'فلسفه', emoji: '📜' }
+];
+
+function filterVid(cat) {
+  vidCat = cat;
+  $$('.vid-filter').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  renderVidGrid();
+}
+
+function renderVidGrid() {
+  let list = vidCat === 'all' ? VIDEOS : VIDEOS.filter(v => v.cat === vidCat);
+  KBA.renderVideos('#vidGrid', list);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('vidFilters').innerHTML = levels.map(l =>
+    `<button class="vid-filter${l.id === 'all' ? ' active' : ''}" data-cat="${l.id}" onclick="filterVid('${l.id}')">${l.emoji} ${l.label}</button>`
+  ).join('');
+  renderVidGrid();
+});
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+</script>
+</body>
+</html>

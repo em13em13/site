@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رویدادها و آزمون‌ها — KYOKABIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .evt-top{margin-top:90px;padding:40px 0;text-align:center;background:linear-gradient(135deg,#0a0a0a,#0a100a,#0a0a0a);border-bottom:1px solid var(--line);}
+    .evt-top h1{font-size:clamp(28px,4vw,42px);font-weight:900;}
+    .evt-top .sub{color:var(--muted);margin-top:8px;}
+    .evt-content{max-width:var(--maxw);margin-inline:auto;padding:24px 18px;}
+    .evt-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+    .evt-tab{padding:8px 18px;border-radius:99px;font-size:13px;font-weight:700;border:1px solid var(--line);background:transparent;color:var(--ink2);transition:.2s;cursor:pointer;}
+    .evt-tab:hover{border-color:var(--red);color:var(--red);}
+    .evt-tab.active{background:var(--red);color:#fff;border-color:var(--red);}
+    .evt-timeline{position:relative;padding-right:30px;border-right:3px solid var(--line);margin-top:20px;}
+    .tl-item{position:relative;margin-bottom:24px;padding:20px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-lg);transition:.3s;}
+    .tl-item:hover{border-color:var(--line2);box-shadow:var(--shadow);}
+    .tl-item::before{content:'';position:absolute;right:-37px;top:24px;width:14px;height:14px;border-radius:50%;border:3px solid;background:var(--bg);box-shadow:var(--shadow-sm);}
+    .tl-item.exam::before{border-color:var(--red);}
+    .tl-item.competition::before{border-color:var(--gold);}
+    .tl-item.camp::before{border-color:var(--green);}
+    .tl-item.seminar::before{border-color:var(--blue);}
+    .tl-header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+    .tl-date{background:var(--bg3);border-radius:10px;padding:8px 14px;text-align:center;flex-shrink:0;}
+    .tl-date .day{font-size:24px;font-weight:900;color:var(--red);}
+    .tl-date .month{font-size:11px;color:var(--muted);}
+    .tl-info{flex:1;}
+    .tl-info h3{font-size:16px;font-weight:800;}
+    .tl-info p{font-size:13px;color:var(--muted);margin-top:3px;}
+    .tl-tag{display:inline-flex;padding:4px 12px;border-radius:99px;font-size:11px;font-weight:700;margin-top:8px;}
+    .tl-tag.exam{background:rgba(220,20,60,.12);color:var(--red);}
+    .tl-tag.competition{background:rgba(255,215,0,.12);color:var(--gold);}
+    .tl-tag.camp{background:rgba(0,200,81,.12);color:var(--green);}
+    .tl-tag.seminar{background:rgba(41,121,255,.12);color:var(--blue);}
+    .tl-action{display:flex;gap:8px;margin-top:12px;}
+    .tl-action .btn{padding:8px 18px;font-size:12px;border-radius:10px;}
+    .evt-tab{display:inline-flex;align-items:center;gap:8px;}
+    .evt-tab .tab-ic{width:22px;height:22px;border-radius:6px;background-size:cover;background-position:center;display:inline-block;flex-shrink:0;}
+    @media(max-width:760px){.evt-timeline{padding-right:10px;border-right:none;}.tl-item::before{display:none;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><div class="logo-icon">極</div><div class="logo-text"><div class="brand">کیوکبیر</div><div class="sub">KYOKABIR</div></div></a>
+    <nav><a href="index.html">خانه</a><a href="shop.html">فروشگاه</a><a href="videos.html">آکادمی ویدیویی</a><a href="vip.html">کمپ VIP 360°</a><a href="events.html" class="active">رویدادها</a><a href="about.html">درباره ما</a></nav>
+    <div class="header-actions"><button class="h-btn" onclick="KBA.toggleLang()">🌐</button><button class="h-btn">❤️<span class="badge fav-badge" style="display:none">0</span></button><button class="h-btn cart-btn">🛒<span class="badge cart-badge">0</span></button><button class="login-btn" onclick="KBA.showLogin()">🥋 ورود</button></div>
+  </div>
+</header>
+
+<div class="evt-top">
+  <div class="container">
+    <h1>📅 رویدادها و <span style="color:var(--red)">آزمون‌ها</span></h1>
+    <p class="sub">تقویم رویدادهای پیش رو — آزمون کمربند، مسابقات و استاژها</p>
+  </div>
+</div>
+
+<div class="evt-content">
+  <div class="evt-tabs">
+    <button class="evt-tab active" onclick="filterEvt('all',this)">همه</button>
+    <button class="evt-tab" onclick="filterEvt('exam',this)"><span class="tab-ic" style="background-image:url('https://images.unsplash.com/photo-1560631820-7f68897fd447?w=60&q=80')"></span>آزمون کمربند</button>
+    <button class="evt-tab" onclick="filterEvt('competition',this)">مسابقات</button>
+    <button class="evt-tab" onclick="filterEvt('camp',this)">کمپ</button>
+    <button class="evt-tab" onclick="filterEvt('seminar',this)">سمینار</button>
+  </div>
+  <div class="evt-timeline" id="evtTimeline"></div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal" style="position:relative"><button class="close" onclick="KBA.closeLogin()">✕</button><div class="modal-icon">🥋</div><h3>ورود به حساب کاربری</h3><p>شماره موبایل خود را وارد کنید</p><div class="input-group"><input type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" maxlength="11"><label>شماره موبایل</label></div><button class="btn btn-red" style="width:100%" onclick="KBA.toast('کد تایید ارسال شد')">ارسال کد تایید</button><div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px"><div class="otp-row"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"></div><button class="btn btn-red" style="width:100%" onclick="KBA.closeLogin();KBA.toast('ورود موفق!')">تایید و ورود</button></div></div>
+</div>
+<div class="toast-zone"></div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script>
+const typeLabels = { exam: 'آزمون کمربند', competition: 'مسابقه', camp: 'کمپ', seminar: 'سمینار' };
+let evtFilter = 'all';
+
+function filterEvt(type, btn) {
+  evtFilter = type;
+  $$('.evt-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderEvents();
+}
+
+function renderEvents() {
+  const list = evtFilter === 'all' ? EVENTS : EVENTS.filter(e => e.type === evtFilter);
+  document.getElementById('evtTimeline').innerHTML = list.map(e => `
+    <div class="tl-item ${e.type}">
+      <div class="tl-header">
+        <div class="tl-date"><div class="day">${e.day}</div><div class="month">${e.month}</div></div>
+        <div class="tl-info">
+          <h3>${L(e.title)}</h3>
+          <p>${L(e.desc)}</p>
+          <span class="tl-tag ${e.type}">${typeLabels[e.type]}</span>
+        </div>
+      </div>
+      <div class="tl-action">
+        ${e.reg ? `<button class="btn btn-red" onclick="KBA.toast('ثبت‌نام شد!')">ثبت‌نام</button>` : `<button class="btn btn-outline" disabled>به زودی</button>`}
+      </div>
+    </div>
+  `).join('');
+}
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+document.addEventListener('DOMContentLoaded', renderEvents);
+</script>
+</body>
+</html>

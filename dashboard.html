@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>داشبورد هنرجو — KYOKABIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><div class="logo-icon">極</div><div class="logo-text"><div class="brand">کیوکبیر</div><div class="sub">KYOKABIR</div></div></a>
+    <nav><a href="index.html">خانه</a><a href="shop.html">فروشگاه</a><a href="videos.html">آکادمی ویدیویی</a><a href="vip.html">کمپ VIP 360°</a><a href="events.html">رویدادها</a><a href="about.html">درباره ما</a></nav>
+    <div class="header-actions"><button class="h-btn" onclick="KBA.toggleLang()">🌐</button><button class="h-btn">❤️<span class="badge fav-badge" style="display:none">0</span></button><button class="h-btn cart-btn">🛒<span class="badge cart-badge">0</span></button><button class="login-btn" onclick="KBA.showLogin()">🥋 داشبورد</button></div>
+  </div>
+</header>
+
+<div class="container dash-layout">
+  <aside class="dash-sidebar">
+    <div class="dash-user">
+      <div class="dash-avatar"><img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=200&q=80" alt="علی محمدی"></div>
+      <div class="dash-name">علی محمدی</div>
+      <div class="dash-rank">سامورایی — SAMURAI</div>
+    </div>
+    <ul class="dash-nav">
+      <li><a href="#" class="active"><span class="ic">📊</span>داشبورد</a></li>
+      <li><a href="#"><span class="ic">📅</span>حضور و غیاب</a></li>
+      <li><a href="#"><span class="ic">💳</span>مدیریت شهریه</a></li>
+      <li><a href="#"><span class="ic">🏆</span>تاریخچه آزمون‌ها</a></li>
+      <li><a href="#"><span class="ic">🩺</span>پرونده سلامت</a></li>
+      <li><a href="#"><span class="ic">🎓</span>ارتباط با منتور</a></li>
+      <li><a href="#"><span class="ic">💰</span>کیف پول</a></li>
+      <li><a href="#"><span class="ic">🛡️</span>بیمه ورزشی</a></li>
+      <li><a href="index.html"><span class="ic">🏠</span>بازگشت به خانه</a></li>
+    </ul>
+  </aside>
+  <div class="dash-main"></div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal" style="position:relative"><button class="close" onclick="KBA.closeLogin()">✕</button><div class="modal-icon">🥋</div><h3>ورود به حساب کاربری</h3><p>شماره موبایل خود را وارد کنید</p><div class="input-group"><input type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" maxlength="11"><label>شماره موبایل</label></div><button class="btn btn-red" style="width:100%" onclick="KBA.toast('کد تایید ارسال شد')">ارسال کد تایید</button><div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px"><div class="otp-row"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"></div><button class="btn btn-red" style="width:100%" onclick="KBA.closeLogin();KBA.toast('ورود موفق!')">تایید و ورود</button></div></div>
+</div>
+<div class="toast-zone"></div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

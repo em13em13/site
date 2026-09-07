@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه دوجو — KYOKABIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .shop-header{margin-top:90px;padding:40px 0;text-align:center;background:linear-gradient(135deg,#0a0a0a,#1a0505,#0a0a0a);border-bottom:1px solid var(--line);}
+    .shop-header h1{font-size:clamp(28px,4vw,42px);font-weight:900;}
+    .shop-header .sub{color:var(--muted);margin-top:8px;}
+    .shop-layout{display:grid;grid-template-columns:240px 1fr;gap:20px;margin-top:24px;min-height:60vh;}
+    .filter-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;position:sticky;top:90px;height:fit-content;}
+    .filter-card h3{font-size:16px;font-weight:800;margin-bottom:12px;}
+    .filter-list{display:grid;gap:3px;}
+    .filter-opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--ink2);transition:.15s;width:100%;text-align:start;}
+    .filter-opt:hover{background:rgba(255,255,255,.05);}
+    .filter-opt.active{background:rgba(220,20,60,.1);color:var(--red);}
+    .filter-opt .e{font-size:18px;}
+    .filter-opt .cnt{margin-inline-start:auto;font-size:11px;color:var(--muted);background:var(--bg3);border-radius:99px;padding:2px 8px;}
+    .shop-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+    .shop-toolbar h2{font-size:18px;font-weight:800;}
+    .shop-toolbar .count{background:var(--red);color:#fff;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700;}
+    .shop-toolbar .sort{margin-inline-start:auto;display:flex;gap:6px;}
+    .shop-toolbar .sort button{padding:7px 14px;border-radius:99px;background:var(--bg-card);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--ink2);transition:.15s;}
+    .shop-toolbar .sort button:hover,.shop-toolbar .sort button.active{background:var(--red);color:#fff;border-color:var(--red);}
+    @media(max-width:760px){.shop-layout{grid-template-columns:1fr;}.filter-card{position:static;}}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">極</div>
+      <div class="logo-text"><div class="brand">کیوکبیر</div><div class="sub">KYOKABIR</div></div>
+    </a>
+    <nav>
+      <a href="index.html">خانه</a>
+      <a href="shop.html" class="active">فروشگاه</a>
+      <a href="videos.html">آکادمی ویدیویی</a>
+      <a href="vip.html">کمپ VIP 360°</a>
+      <a href="events.html">رویدادها</a>
+      <a href="about.html">درباره ما</a>
+    </nav>
+    <div class="header-actions">
+      <button class="h-btn" onclick="KBA.toggleLang()">🌐</button>
+      <button class="h-btn">❤️<span class="badge fav-badge" style="display:none">0</span></button>
+      <button class="h-btn cart-btn">🛒<span class="badge cart-badge">0</span></button>
+      <button class="login-btn" onclick="KBA.showLogin()">🥋 ورود</button>
+    </div>
+  </div>
+</header>
+
+<!-- SHOP HEADER -->
+<div class="shop-header">
+  <div class="container">
+    <h1>🛍️ فروشگاه <span style="color:var(--red)">دوجو</span></h1>
+    <p class="sub">تجهیزات اصل کیوکوشین — از دوگی تا اکسسوری</p>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT -->
+<div class="container shop-layout">
+  <!-- FILTER -->
+  <aside class="filter-card">
+    <h3>دسته‌بندی</h3>
+    <div class="filter-list" id="filterList"></div>
+    <h3 style="margin-top:20px">قیمت</h3>
+    <div style="display:grid;gap:8px;margin-top:8px">
+      <button class="filter-opt active" onclick="filterPrice('all')" data-price="all">همه قیمت‌ها</button>
+      <button class="filter-opt" onclick="filterPrice('low')" data-price="low">زیر ۵۰۰ هزار</button>
+      <button class="filter-opt" onclick="filterPrice('mid')" data-price="mid">۵۰۰ هزار تا ۱ میلیون</button>
+      <button class="filter-opt" onclick="filterPrice('high')" data-price="high">بالای ۱ میلیون</button>
+    </div>
+  </aside>
+
+  <!-- PRODUCTS -->
+  <div>
+    <div class="shop-toolbar">
+      <h2>محصولات</h2>
+      <span class="count" id="prodCount">۱۲</span>
+      <div class="sort">
+        <button class="active" onclick="sortProducts('default',this)">پیش‌فرض</button>
+        <button onclick="sortProducts('cheap',this)">ارزان‌ترین</button>
+        <button onclick="sortProducts('expensive',this)">گران‌ترین</button>
+      </div>
+    </div>
+    <div id="shopAll" class="products-grid"></div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal" style="position:relative">
+    <button class="close" onclick="KBA.closeLogin()">✕</button>
+    <div class="modal-icon">🥋</div>
+    <h3>ورود به حساب کاربری</h3>
+    <p>شماره موبایل خود را وارد کنید</p>
+    <div class="input-group"><input type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" maxlength="11"><label>شماره موبایل</label></div>
+    <button class="btn btn-red" style="width:100%" onclick="KBA.toast('کد تایید ارسال شد')">ارسال کد تایید</button>
+    <div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px">
+      <div class="otp-row"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"></div>
+      <button class="btn btn-red" style="width:100%" onclick="KBA.closeLogin();KBA.toast('ورود موفق!')">تایید و ورود</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-zone"></div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script>
+let activeCat = 'all';
+let activePrice = 'all';
+let activeSort = 'default';
+
+function filterCat(cat) {
+  activeCat = cat;
+  $$('.filter-opt[data-cat]').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  renderFiltered();
+}
+function filterPrice(p) {
+  activePrice = p;
+  $$('.filter-opt[data-price]').forEach(b => b.classList.toggle('active', b.dataset.price === p));
+  renderFiltered();
+}
+function sortProducts(s, btn) {
+  activeSort = s;
+  $$('.sort button').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderFiltered();
+}
+
+function renderFiltered() {
+  let list = [...PRODUCTS];
+  if (activeCat !== 'all') list = list.filter(p => p.cat === activeCat);
+  if (activePrice === 'low') list = list.filter(p => p.price < 500000);
+  else if (activePrice === 'mid') list = list.filter(p => p.price >= 500000 && p.price <= 1000000);
+  else if (activePrice === 'high') list = list.filter(p => p.price > 1000000);
+  if (activeSort === 'cheap') list.sort((a, b) => a.price - b.price);
+  else if (activeSort === 'expensive') list.sort((a, b) => b.price - a.price);
+  document.getElementById('prodCount').textContent = num(list.length);
+  KBA.renderProducts('#shopAll', list);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const fl = document.getElementById('filterList');
+  fl.innerHTML = `<button class="filter-opt active" data-cat="all" onclick="filterCat('all')"><span class="e">📋</span>همه<span class="cnt">${num(PRODUCTS.length)}</span></button>` +
+    CATS.map(c => {
+      const cnt = PRODUCTS.filter(p => p.cat === c.id).length;
+      return `<button class="filter-opt" data-cat="${c.id}" onclick="filterCat('${c.id}')"><span class="e">${c.emoji}</span>${c.fa}<span class="cnt">${num(cnt)}</span></button>`;
+    }).join('');
+  renderFiltered();
+});
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+</script>
+</body>
+</html>

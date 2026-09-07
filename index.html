@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KYOKABIR — آکادمی کیوکوشین کاراته کیوکبیر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">極</div>
+      <div class="logo-text">
+        <div class="brand">کیوکبیر</div>
+        <div class="sub">KYOKABIR</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html" class="active">خانه</a>
+      <a href="shop.html">فروشگاه</a>
+      <a href="videos.html">آکادمی ویدیویی</a>
+      <a href="vip.html">کمپ VIP 360°</a>
+      <a href="events.html">رویدادها</a>
+      <a href="about.html">درباره ما</a>
+    </nav>
+    <div class="header-actions">
+      <button class="h-btn" onclick="KBA.toggleLang()" title="تغییر زبان">🌐</button>
+      <button class="h-btn" title="علاقه‌مندی‌ها">❤️<span class="badge fav-badge" style="display:none">0</span></button>
+      <button class="h-btn cart-btn" title="سبد خرید">🛒<span class="badge cart-badge">0</span></button>
+      <button class="login-btn" onclick="KBA.showLogin()">🥋 ورود / ثبت‌نام</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-visual">空手</div>
+  <div class="hero-kanji">極真<span>KYOKUSHIN</span></div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span> آکادمی رسمی کیوکوشین کاراته</div>
+    <h1 class="hero-title">
+      قوی‌تر شو.<br>
+      <span class="gold">مسیر جنگجویی</span><br>
+      <span class="red">از اینجا شروع می‌شود.</span>
+    </h1>
+    <p class="hero-sub">آکادمی کیوکبیر با بیش از ۵۰۰ هنرجوی فعال، بهترین مربیان و سیستم گیمیفیکیشن پیشرفته، پذیرای شماست.</p>
+    <div class="hero-btns">
+      <a href="shop.html" class="btn btn-red">🥋 ثبت‌نام در باشگاه</a>
+      <a href="videos.html" class="btn btn-gold">▶ مشاهده دوره‌ها</a>
+      <a href="shop.html" class="btn btn-outline">🛍️ فروشگاه دوجو</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="num">+۵۰۰</div><div class="lbl">هنرجوی فعال</div></div>
+      <div class="stat-item"><div class="num">+۱۰</div><div class="lbl">سال تجربه</div></div>
+      <div class="stat-item"><div class="num">+۵۰</div><div class="lbl">مسابقه موفق</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">✦ WHY KYOKABIR</div>
+      <h2>چرا <span class="red">کیوکبیر</span>؟</h2>
+      <p class="sub">بیش از یک باشگاه ورزشی</p>
+      <div class="deco-line"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-ic" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&q=80');"></div>
+        <h3>مدیریت هوشمند باشگاه</h3>
+        <p>سیستم حضور و غیاب، شهریه و جلسات به صورت کاملاً دیجیتال</p>
+        <span class="tag">سیستم مدیریت</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=200&q=80');"></div>
+        <h3>آکادمی ویدیویی</h3>
+        <p>صدها ویدیوی آموزشی از کاتا تا تکنیک‌های مبارزه</p>
+        <span class="tag">یادگیری آنلاین</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background-image:url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=200&q=80');"></div>
+        <h3>فروشگاه دوجو</h3>
+        <p>تجهیزات، پوشاک و اکسسوری اصل کیوکوشین</p>
+        <span class="tag">خرید آنلاین</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background-image:url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=200&q=80');"></div>
+        <h3>گیمیفیکیشن</h3>
+        <p>سیستم امتیازدهی XP و سطوح وفاداری سامورایی</p>
+        <span class="tag">سرگرمی + یادگیری</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background-image:url('https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=200&q=80');"></div>
+        <h3>کمپ VIP 360°</h3>
+        <p>پکیج جامع سلامت، تغذیه، کاردرمانی و منتورینگ</p>
+        <span class="tag">خدمات ویژه</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background-image:url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=200&q=80');"></div>
+        <h3>رویدادها</h3>
+        <p>آزمون کمربند، مسابقات و استاژهای منظم</p>
+        <span class="tag">مسابقه و رقابت</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RANKS ===== -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">⚔️ SAMURAI RANKS</div>
+      <h2>سطوح <span class="red">وفاداری سامورایی</span></h2>
+      <p class="sub">از آشیگارو تا شوگون — مسیر رشد خود را طی کنید</p>
+      <div class="deco-line"></div>
+    </div>
+    <div class="ranks-grid">
+      <div class="rank-card" style="--rank-color:rgba(170,170,170,.08);--rank-border:#aaa">
+        <div class="rank-icon" style="background-image:url('https://images.unsplash.com/photo-1560631820-7f68897fd447?w=200&q=80');border-color:#aaa"></div>
+        <h3>آشیگارو</h3>
+        <div class="en">ASHIGARU</div>
+        <div class="disc">تخفیف ۵٪</div>
+        <ul class="perks"><li>شروع مسیر</li><li>تخفیف ۵٪ فروشگاه</li><li>عضویت پایه</li></ul>
+      </div>
+      <div class="rank-card" style="--rank-color:rgba(255,215,0,.08);--rank-border:#ffd700">
+        <div class="rank-icon" style="background-image:url('https://images.unsplash.com/photo-1555597673-b21d5c935865?w=200&q=80');border-color:#ffd700"></div>
+        <h3>سامورایی</h3>
+        <div class="en">SAMURAI</div>
+        <div class="disc">تخفیف ۱۵٪</div>
+        <ul class="perks"><li>تخفیف ۱۵٪ تجهیزات</li><li>تخفیف ویژه شهریه</li><li>دسترسی ویدیوهای پیشرفته</li></ul>
+      </div>
+      <div class="rank-card" style="--rank-color:rgba(255,107,53,.08);--rank-border:#ff6b35">
+        <div class="rank-icon" style="background-image:url('https://images.unsplash.com/photo-1678804481508-93d3357b4477?w=200&q=80');border-color:#ff6b35"></div>
+        <h3>هاتاموتو</h3>
+        <div class="en">HATAMOTO</div>
+        <div class="disc">تخفیف ۵۰٪</div>
+        <ul class="perks"><li>تخفیف ۵۰٪ شهریه</li><li>الکر اختصاصی رایگان</li><li>ثبت رایگان مسابقات</li></ul>
+      </div>
+      <div class="rank-card" style="--rank-color:rgba(220,20,60,.08);--rank-border:#dc143c">
+        <div class="rank-icon" style="background-image:url('https://images.unsplash.com/photo-1551101584-8c8a053e1e00?w=200&q=80');border-color:#dc143c"></div>
+        <h3>شوگون</h3>
+        <div class="en">SHŌGUN</div>
+        <div class="disc">VIP 360°</div>
+        <ul class="perks"><li>پکیج VIP 360°</li><li>درجه سلامت و قهرمانی</li><li>منتور اختصاصی</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEADERBOARD ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">🏅 LEADERBOARD</div>
+      <h2>لیدربورد <span class="red">هنرجویان برتر</span></h2>
+      <div class="deco-line"></div>
+    </div>
+    <div id="leaderboard" class="events-list"></div>
+  </div>
+</section>
+
+<!-- ===== SHOP PREVIEW ===== -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">🥋 DOJO SHOP</div>
+      <h2>فروشگاه <span class="red">دوجو</span></h2>
+      <p class="sub">تجهیزات اصل کیوکوشین</p>
+      <div class="deco-line"></div>
+    </div>
+    <div id="shopGrid" class="products-grid"></div>
+    <div style="text-align:center;margin-top:24px"><a href="shop.html" class="btn btn-outline">مشاهده همه محصولات →</a></div>
+  </div>
+</section>
+
+<!-- ===== VIP SECTION ===== -->
+<section class="section">
+  <div class="container">
+    <div class="vip-hero">
+      <div class="vip-content">
+        <div class="vip-badge">👑 VIP 360° ELITE</div>
+        <h2 class="vip-title">کمپ <span class="red">VIP 360°</span><br><span class="gold">قهرمانی</span></h2>
+        <p class="vip-desc">بیش از یک دوره تمرینی؛ یک سبک زندگی کامل با خدمات پزشکی، تغذیه، کاردرمانی و منتورینگ اختصاصی.</p>
+        <div class="vip-features">
+          <div class="vip-feat"><div class="ic"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=100&q=80" alt=""></div>مشاوره پزشکی</div>
+          <div class="vip-feat"><div class="ic"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=100&q=80" alt=""></div>برنامه تغذیه</div>
+          <div class="vip-feat"><div class="ic"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=100&q=80" alt=""></div>کاردرمانی</div>
+          <div class="vip-feat"><div class="ic"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=100&q=80" alt=""></div>منتور اختصاصی</div>
+          <div class="vip-feat"><div class="ic"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=100&q=80" alt=""></div>مانیتورینگ ۲۴/۷</div>
+          <div class="vip-feat"><div class="ic"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=100&q=80" alt=""></div>بیمه ورزشی</div>
+        </div>
+        <a href="vip.html" class="btn btn-gold" style="margin-top:24px">مشاوره رایگان →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEOS PREVIEW ===== -->
+<section class="section" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">🎬 VIDEO ACADEMY</div>
+      <h2>آکادمی <span class="red">ویدیویی</span></h2>
+      <p class="sub">آموزش آنلاین از مبتدی تا پیشرفته</p>
+      <div class="deco-line"></div>
+    </div>
+    <div id="videosGrid" class="videos-grid"></div>
+    <div style="text-align:center;margin-top:24px"><a href="videos.html" class="btn btn-outline">مشاهده همه ویدیوها →</a></div>
+  </div>
+</section>
+
+<!-- ===== EVENTS PREVIEW ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">📅 EVENTS</div>
+      <h2>رویدادها و <span class="red">آزمون‌ها</span></h2>
+      <p class="sub">تقویم رویدادهای پیش رو</p>
+      <div class="deco-line"></div>
+    </div>
+    <div id="eventsList" class="events-list"></div>
+    <div style="text-align:center;margin-top:24px"><a href="events.html" class="btn btn-outline">مشاهده همه رویدادها →</a></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <div class="logo-icon" style="width:42px;height:42px;font-size:20px;border-radius:12px">極</div>
+          <div><div style="font-size:18px;font-weight:900;color:#fff">کیوکبیر</div><div style="font-size:10px;color:#ffd700;letter-spacing:2px">KYOKABIR</div></div>
+        </div>
+        <p class="footer-about">آکادمی کیوکبیر مرکز رسمی آموزش کیوکوشین کاراته با بیش از ۱۰ سال تجربه در تربیت قهرمانان ملی و بین‌المللی.</p>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">→ خانه</a></li>
+          <li><a href="shop.html">→ فروشگاه دوجو</a></li>
+          <li><a href="videos.html">→ آکادمی ویدیویی</a></li>
+          <li><a href="vip.html">→ کمپ VIP 360°</a></li>
+          <li><a href="events.html">→ رویدادها</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>خدمات</h4>
+        <ul class="footer-links">
+          <li><a href="vip.html">→ کمپ VIP 360°</a></li>
+          <li><a href="shop.html">→ فروشگاه</a></li>
+          <li><a href="videos.html">→ آموزش آنلاین</a></li>
+          <li><a href="events.html">→ آزمون کمربند</a></li>
+          <li><a href="about.html">→ درباره ما</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تماس با ما</h4>
+        <ul class="footer-links">
+          <li>📞 ۰۲۱-۱۲۳۴۵۶۷۸</li>
+          <li>📍 تهران، خیابان آزادی</li>
+          <li>✉️ info@kyokabir.ir</li>
+          <li>🕐 شنبه تا پنجشنبه ۱۶-۲۱</li>
+        </ul>
+        <div class="social-row" style="margin-top:14px">
+          <a href="#">📷</a><a href="#">💬</a><a href="#">🐦</a><a href="#">📺</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ۱۴۰۴ آکادمی کیوکبیر — تمامی حقوق محفوظ است.</span>
+      <span>طراحی با ❤️ و 🥋</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== AUTH MODAL ===== -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal" style="position:relative">
+    <button class="close" onclick="KBA.closeLogin()">✕</button>
+    <div class="modal-icon">🥋</div>
+    <h3>ورود به حساب کاربری</h3>
+    <p>شماره موبایل خود را وارد کنید</p>
+    <div class="input-group">
+      <input type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" maxlength="11" id="phoneInput">
+      <label>شماره موبایل</label>
+    </div>
+    <button class="btn btn-red" style="width:100%" onclick="KBA.toast('کد تایید ارسال شد')">ارسال کد تایید</button>
+    <div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px">کد ۵ رقمی را وارد کنید</p>
+      <div class="otp-row">
+        <input type="text" class="otp-box" maxlength="1">
+        <input type="text" class="otp-box" maxlength="1">
+        <input type="text" class="otp-box" maxlength="1">
+        <input type="text" class="otp-box" maxlength="1">
+        <input type="text" class="otp-box" maxlength="1">
+      </div>
+      <button class="btn btn-red" style="width:100%" onclick="KBA.closeLogin();KBA.toast('ورود موفقیت‌آمیز!')">تایید و ورود</button>
+      <p class="resend">ارسال مجدد کد <a onclick="KBA.toast('کد مجدداً ارسال شد')">۵۹ ثانیه</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TOAST ZONE ===== -->
+<div class="toast-zone"></div>
+
+<!-- ===== BACK TOP ===== -->
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  KBA.renderProducts('#shopGrid', PRODUCTS.slice(0, 8));
+  KBA.renderVideos('#videosGrid', VIDEOS.slice(0, 4));
+  KBA.renderEvents('#eventsList', EVENTS.slice(0, 3));
+  KBA.renderLeaderboard('#leaderboard');
+});
+</script>
+</body>
+</html>

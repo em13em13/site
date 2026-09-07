@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کمپ VIP 360° — KYOKABIR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .vip-top{margin-top:90px;padding:60px 0;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0a0a,#1a0505,#0a0a0a);}
+    .vip-top::before{content:'360°';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:clamp(120px,20vw,280px);font-weight:900;color:rgba(220,20,60,.04);font-family:var(--font-ja);pointer-events:none;}
+    .vip-top h1{font-size:clamp(30px,5vw,50px);font-weight:900;}
+    .vip-top .sub{color:var(--ink2);font-size:16px;margin-top:10px;max-width:600px;margin-inline:auto;line-height:1.9;}
+    .vip-sec{max-width:var(--maxw);margin-inline:auto;padding:40px 18px;}
+    .vip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .vip-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px 24px;text-align:center;transition:.3s;position:relative;overflow:hidden;}
+    .vip-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-gold);transform:scaleX(0);transition:.3s;transform-origin:left;}
+    .vip-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:var(--shadow);}
+    .vip-card:hover::before{transform:scaleX(1);}
+    .vip-card .ic{width:60px;height:60px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;background-size:cover;background-position:center;background-color:rgba(255,215,0,.08);border:2px solid rgba(255,215,0,.2);overflow:hidden;}
+    .vip-card h3{font-size:17px;font-weight:800;margin-bottom:6px;}
+    .vip-card p{font-size:13px;color:var(--muted);line-height:1.8;}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
+    .price-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 24px;text-align:center;transition:.3s;position:relative;}
+    .price-card.featured{border-color:var(--gold);background:linear-gradient(135deg,#1a1408,#141414);}
+    .price-card.featured::before{content:'محبوب‌ترین';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad-gold);color:#0a0a0a;padding:4px 16px;border-radius:99px;font-size:11px;font-weight:800;}
+    .price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+    .price-card .tier{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:6px;}
+    .price-card .name{font-size:22px;font-weight:900;}
+    .price-card .price{font-size:36px;font-weight:900;color:var(--gold);margin:16px 0 4px;}
+    .price-card .period{font-size:12px;color:var(--muted);margin-bottom:20px;}
+    .price-card ul{list-style:none;text-align:start;font-size:13px;color:var(--ink2);margin-bottom:20px;}
+    .price-card ul li{padding:6px 0;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line);}
+    .price-card ul li:last-child{border:0;}
+    .price-card ul li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+    .med-section{margin-top:40px;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;}
+    .med-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px;}
+    .med-card{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:var(--r);background:var(--bg3);transition:.2s;}
+    .med-card:hover{transform:translateY(-2px);background:var(--bg-card);}
+    .med-card .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;background-size:cover;background-position:center;}
+    .med-card h4{font-size:14px;font-weight:700;margin-bottom:3px;}
+    .med-card p{font-size:12px;color:var(--muted);}
+    .faq-section{margin-top:30px;}
+    .faq-item{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:8px;overflow:hidden;}
+    .faq-q{width:100%;padding:16px 20px;text-align:start;font-size:14px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:space-between;}
+    .faq-q:hover{color:var(--gold);}
+    .faq-a{padding:0 20px 16px;font-size:13px;color:var(--muted);line-height:1.9;display:none;}
+    .faq-item.open .faq-a{display:block;}
+    .faq-item.open .faq-q .arrow{transform:rotate(180deg);}
+    .faq-q .arrow{transition:.2s;}
+    @media(max-width:760px){.vip-grid,.pricing-grid{grid-template-columns:1fr;}.med-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><div class="logo-icon">極</div><div class="logo-text"><div class="brand">کیوکبیر</div><div class="sub">KYOKABIR</div></div></a>
+    <nav><a href="index.html">خانه</a><a href="shop.html">فروشگاه</a><a href="videos.html">آکادمی ویدیویی</a><a href="vip.html" class="active">کمپ VIP 360°</a><a href="events.html">رویدادها</a><a href="about.html">درباره ما</a></nav>
+    <div class="header-actions"><button class="h-btn" onclick="KBA.toggleLang()">🌐</button><button class="h-btn">❤️<span class="badge fav-badge" style="display:none">0</span></button><button class="h-btn cart-btn">🛒<span class="badge cart-badge">0</span></button><button class="login-btn" onclick="KBA.showLogin()">🥋 ورود</button></div>
+  </div>
+</header>
+
+<div class="vip-top">
+  <div class="container">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:99px;background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);color:var(--gold);font-size:12px;font-weight:700;margin-bottom:16px">👑 VIP 360° ELITE</div>
+    <h1>کمپ <span style="color:var(--red)">VIP 360°</span> <span style="color:var(--gold)">قهرمانی</span></h1>
+    <p class="sub">بیش از یک دوره تمرینی؛ یک سبک زندگی کامل با خدمات پزشکی، تغذیه، کاردرمانی و منتورینگ اختصاصی.</p>
+  </div>
+</div>
+
+<div class="vip-sec">
+  <div class="section-head">
+    <div class="eyebrow" style="color:var(--gold)">✦ SERVICES</div>
+    <h2>خدمات <span style="color:var(--gold)">VIP 360°</span></h2>
+    <div class="deco-line" style="background:var(--grad-gold)"></div>
+  </div>
+  <div class="vip-grid">
+    <div class="vip-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=200&q=80')"></div><h3>مشاوره پزشکی</h3><p>ویزیت دوره‌ای با پزشک ورزشی و پایش سلامت</p></div>
+    <div class="vip-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&q=80')"></div><h3>برنامه تغذیه</h3><p>برنامه غذایی اختصاصی توسط متخصص تغذیه ورزشی</p></div>
+    <div class="vip-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=200&q=80')"></div><h3>کاردرمانی</h3><p>بازتوانی و تقویت عضلات آسیب‌دیده</p></div>
+    <div class="vip-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&q=80')"></div><h3>منتور اختصاصی</h3><p>اتصال به یک سنپای ارشد برای راهنمایی شخصی</p></div>
+    <div class="vip-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=200&q=80')"></div><h3>مانیتورینگ ۲۴/۷</h3><p>پایش مداوم وضعیت تمرینی و پیشرفت</p></div>
+    <div class="vip-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&q=80')"></div><h3>بیمه ورزشی</h3><p>پوشش بیمه‌ای کامل در طول دوره</p></div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="section-head" style="margin-top:50px">
+    <div class="eyebrow" style="color:var(--gold)">💰 PRICING</div>
+    <h2>تعرفه <span style="color:var(--gold)">اعضا</span></h2>
+    <div class="deco-line" style="background:var(--grad-gold)"></div>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="tier">-basic</div>
+      <div class="name">هنرجوی عادی</div>
+      <div class="price">۱,۵۰۰,۰۰۰</div>
+      <div class="period">تومان / ماه</div>
+      <ul><li>۱۲ جلسه تمرین در ماه</li><li>دسترسی به ویدیوهای پایه</li><li>تخفیف ۵٪ فروشگاه</li></ul>
+      <button class="btn btn-outline" style="width:100%">ثبت‌نام</button>
+    </div>
+    <div class="price-card featured">
+      <div class="tier">elite</div>
+      <div class="name">هنرجوی VIP</div>
+      <div class="price">۳,۵۰۰,۰۰۰</div>
+      <div class="period">تومان / ماه</div>
+      <ul><li>جلسات نامحدود</li><li>دسترسی کامل ویدیوها</li><li>تخفیف ۱۵٪ فروشگاه</li><li>مشاوره پزشکی</li><li>برنامه تغذیه</li><li>منتور اختصاصی</li></ul>
+      <button class="btn btn-gold" style="width:100%">ثبت‌نام VIP</button>
+    </div>
+    <div class="price-card">
+      <div class="tier">champion</div>
+      <div class="name">شوگون ۳۶۰°</div>
+      <div class="price">۷,۰۰۰,۰۰۰</div>
+      <div class="period">تومان / ماه</div>
+      <ul><li>همه مزایای VIP</li><li>کاردرمانی اختصاصی</li><li>مانیتورینگ ۲۴/۷</li><li>بیمه ورزشی کامل</li><li>ثبت رایگان مسابقات</li><li>الکر اختصاصی</li></ul>
+      <button class="btn btn-red" style="width:100%">مشاوره رایگان</button>
+    </div>
+  </div>
+
+  <!-- MEDICAL -->
+  <div class="med-section">
+    <h3 style="font-size:20px;font-weight:900">خدمات پزشکی و توانبخشی</h3>
+    <p style="color:var(--muted);font-size:13px;margin-top:4px">در کمپ VIP 360° از بهترین متخصصان بهره مند شوید</p>
+    <div class="med-grid">
+      <div class="med-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=200&q=80')"></div><div><h4>پزشک ورزشی</h4><p>ویزیت و معاینات دوره‌ای</p></div></div>
+      <div class="med-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=200&q=80')"></div><div><h4>متخصص تغذیه</h4><p>برنامه غذایی اختصاصی</p></div></div>
+      <div class="med-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=200&q=80')"></div><div><h4>فیزیوتراپی</h4><p>بازتوانی آسیب‌ها</p></div></div>
+      <div class="med-card"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=200&q=80')"></div><div><h4>روانشناس ورزشی</h4><p>تقویت روحیه رقابتی</p></div></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="section-head">
+      <div class="eyebrow" style="color:var(--gold)">❓ FAQ</div>
+      <h2>سوالات <span style="color:var(--gold)">متداول</span></h2>
+    </div>
+    <div class="faq-item"><button class="faq-q">آیا امکان لغو عضویت وجود دارد؟ <span class="arrow">▼</span></button><div class="faq-a">بله، در هر زمان می‌توانید عضویت خود را لغو کنید. هزینه باقیمانده ماه جاری به کیف پول شما بازمی‌گردد.</div></div>
+    <div class="faq-item"><button class="faq-q">آیا بیمه ورزشی جداگانه است؟ <span class="arrow">▼</span></button><div class="faq-a">بیمه ورزشی در پکیج شوگون ۳۶۰° شامل است. در پکیج‌های دیگر می‌توانید جداگانه تهیه کنید.</div></div>
+    <div class="faq-item"><button class="faq-q">چگونه می‌توانم ارتقا رنک پیدا کنم؟ <span class="arrow">▼</span></button><div class="faq-a">از طریق کسب امتیاز XP در جلسات حضوری، تمدید شهریه، قبولی در آزمون‌ها و مشارکت در مسابقات.</div></div>
+    <div class="faq-item"><button class="faq-q">آیا امکان تهاتر شهریه با منتورینگ وجود دارد؟ <span class="arrow">▼</span></button><div class="faq-a">بله، سنپای‌های ارشد می‌توانند با منتورینگ شاگردان VIP، اعتبار کیف پول دریافت کنند.</div></div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal" style="position:relative"><button class="close" onclick="KBA.closeLogin()">✕</button><div class="modal-icon">🥋</div><h3>ورود به حساب کاربری</h3><p>شماره موبایل خود را وارد کنید</p><div class="input-group"><input type="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" maxlength="11"><label>شماره موبایل</label></div><button class="btn btn-red" style="width:100%" onclick="KBA.toast('کد تایید ارسال شد')">ارسال کد تایید</button><div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px"><div class="otp-row"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"><input type="text" class="otp-box" maxlength="1"></div><button class="btn btn-red" style="width:100%" onclick="KBA.closeLogin();KBA.toast('ورود موفق!')">تایید و ورود</button></div></div>
+</div>
+<div class="toast-zone"></div>
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
+  });
+});
+</script>
+</body>
+</html>
