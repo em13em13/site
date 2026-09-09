@@ -193,15 +193,15 @@
     const pct = (student.xp / student.nextXp * 100).toFixed(0);
     dashMain.innerHTML = `
       <div class="dash-top">
-        <div class="dash-stat"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100&q=80')"></div><div><div class="val">${student.sessions}</div><div class="lbl">${t('dashSessions')}</div></div></div>
-        <div class="dash-stat"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=100&q=80')"></div><div><div class="val">${num(student.xp)}</div><div class="lbl">${t('dashXp')}</div></div></div>
-        <div class="dash-stat"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1555597673-b21d5c935865?w=100&q=80')"></div><div><div class="val">${student.rankFa}</div><div class="lbl">${t('dashRank')}</div></div></div>
-        <div class="dash-stat"><div class="ic" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=100&q=80')"></div><div><div class="val">${student.insurance ? 'معتبر' : 'منقضی'}</div><div class="lbl">${t('dashInsurance')}</div></div></div>
+        <div class="dash-stat"><div class="ic" style="background-image:url('images/u-1521572163474-6864f9cf17ab.jpg')"></div><div><div class="val">${student.sessions}</div><div class="lbl">${t('dashSessions')}</div></div></div>
+        <div class="dash-stat"><div class="ic" style="background-image:url('images/u-1568602471122-7832951cc4c5.jpg')"></div><div><div class="val">${num(student.xp)}</div><div class="lbl">${t('dashXp')}</div></div></div>
+        <div class="dash-stat"><div class="ic" style="background-image:url('images/u-1555597673-b21d5c935865.jpg')"></div><div><div class="val">${student.rankFa}</div><div class="lbl">${t('dashRank')}</div></div></div>
+        <div class="dash-stat"><div class="ic" style="background-image:url('images/u-1554224155-6726b3ff858f.jpg')"></div><div><div class="val">${student.insurance ? 'معتبر' : 'منقضی'}</div><div class="lbl">${t('dashInsurance')}</div></div></div>
       </div>
       <div class="loyalty-card">
         <div class="loyalty-header">
           <div class="rank-info">
-            <div class="rank-icon"><img src="https://images.unsplash.com/photo-1555597673-b21d5c935865?w=100&q=80" alt="Samurai"></div>
+            <div class="rank-icon"><img src="images/u-1555597673-b21d5c935865.jpg" alt="Samurai"></div>
             <div><div class="rank-name">${student.rankFa}</div><div class="rank-en">SAMURAI</div></div>
           </div>
           <div class="xp-text">${num(student.xp)} / ${num(student.nextXp)} XP</div>
